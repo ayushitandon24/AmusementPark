@@ -1,0 +1,27 @@
+.products__title {
+  padding: 0.5em 0 0 0.5em;
+}
+
+.products__price {
+  /* margin-left: 0.8em;
+  margin-bottom: 1em;*/
+  margin: 0.8em 1em;
+}
+
+.products__display-box {
+  margin-top: 30px;
+}
+
+.products__add-to-cart {
+  padding: 0;
+  background: #fff;
+}
+
+.products__add-to-cart-cta {
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.products__image {
+  height: 200px;
+}

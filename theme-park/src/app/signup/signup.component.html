@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-5 mx-auto mt-5 text-center" id="check">
+      <div class="card bg-light"> 
+        <div class="card-header">
+          Sign Up
+        </div>       
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12">
+                  <div class="form-group">
+                    <input #name="ngModel" [(ngModel)]="newuser.name" type="text"  name="name" id="name" class="form-control" placeholder="Name"required >
+                  </div>
+                  <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                    <div *ngIf="name.errors.required" id="error">Name is required.</div>
+                    
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group">
+                    <input #email="ngModel" [(ngModel)]="newuser.email" type="text"  name="email" id="email" class="form-control" placeholder="Email" required pattern=".+\@.+\..+">
+                  </div>
+                  <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                    <div *ngIf="email.errors.required" id="error">Email is required.</div>
+                    <div *ngIf="email.errors?.pattern" id="error"> Email is not valid.</div>
+                    
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group">
+                    <input #password="ngModel" [(ngModel)]="newuser.password" type="password"  id="password" name="password" class="form-control" placeholder="Password" required pattern="(?=.{9,})(?=.*?[^\w\s])(?=.*?[0-9])(?=.*?[A-Z]).*?[a-z].*">
+                  </div>
+                  <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+                    
+                    <div *ngIf="password.errors.required" id="error">Password is required.</div>
+                    <div *ngIf="password.errors?.pattern" id="error"> Password should have at least 9 characters, with at least one character from each of the 4 character classes (alphabetic,lower and upper case, numeric, special characters).</div>
+                </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group">
+                    <input  #confirmpassword="ngModel" [(ngModel)]="e" type="password" placeholder="Confirm Password" id="confirmpassword" name="confirmpassword" class="form-control" required >
+                  </div>
+                  <div style="display: none;"  id="error1" class="alert alert-danger">Confirm Password and Password does not match.</div>
+                  <div *ngIf="confirmpassword.invalid && (confirmpassword.dirty || confirmpassword.touched)" class="alert alert-danger" >
+                    <div *ngIf="confirmpassword.errors.required" id="error">Confirm Password is required.</div>
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <button class="btn btn-primary" [disabled]="true"(click)="signup()" id ="btn">Sign Up</button>
+                </div>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

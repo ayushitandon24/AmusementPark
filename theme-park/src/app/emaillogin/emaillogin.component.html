@@ -1,0 +1,41 @@
+<script src="vendor/jquery-validation/dist/jquery.validate.min.js"></script>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-5 mx-auto mt-5 text-center">
+      <div class="card bg-light"> 
+        <div class="card-header">
+          Login
+        </div>       
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12">
+                  <div class="form-group">
+                    <input  #email="ngModel" [(ngModel)]="user.email" type="text"  name="email" id="email"  class="form-control" placeholder="Email" required pattern=".+\@.+\..+" >
+                    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                      <div *ngIf="email.errors.required"  id="error">Email is required.</div>
+                      <div *ngIf="email.errors?.pattern"  id="error"> Email  not valid.</div>
+                      
+                    </div>
+                 
+                </div>
+                <div class="col-12">
+                  <div class="form-group">
+                    <input #password="ngModel"[(ngModel)]="user.password" type="password"   id="password" name="password" class="form-control" placeholder="Password" required  >
+
+                  </div>
+                  <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+                    
+                    <div *ngIf="password.errors.required"  id="error">Password is required</div>
+                </div>
+                
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <button class="btn btn-primary" [disabled]="true" (click)="login()" id='btn'>Login</button>
+                </div>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
